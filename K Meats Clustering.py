@@ -42,7 +42,6 @@ def intro():
 (2) Phân tích thăm dò (EDA)
 (3) Data Normalization
 (4) K-Means Clustering Analysis 
-(9) Lựa chọn số cụm
 
 (0) About
 (00) Exit
@@ -68,8 +67,7 @@ Created by AI Assistant, aimed at providing insights from customer data.
             exploratory_data_analysis()
         elif choice == 3:
             data_normalization()
-        elif choice == 9:
-            choose_optimal_clusters()
+       
         else:
             print("Invalid choice. Returning to main menu.")
             intro()
@@ -87,7 +85,7 @@ def data_description():
     # print("\nData Types:")
     # print(data.dtypes)
     while True:
-        check_opjeck = input("\n Nhập Object mà bạn muốn kiểm tra (yes/no): ")
+        check_opjeck = input("\n Nhập Object mà bạn muốn kiểm tra (no): ")
         if check_opjeck.lower() == 'no':
             break
         unique_count = len(df[check_opjeck].unique())
