@@ -28,15 +28,15 @@ df = pd.read_csv(data)
 def intro():
     os.system("clear")  # Thay thế cmd bằng os.system 
     print("""\033[1;32m
-----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------
  ██╗  ██╗      ███╗   ███╗███████╗ █████╗ ███╗   ██╗███████╗     ██████╗██╗     ██╗   ██╗███████╗████████╗███████╗██████╗ ██╗███╗   ██╗ ██████╗ 
  ██║ ██╔╝      ████╗ ████║██╔════╝██╔══██╗████╗  ██║██╔════╝    ██╔════╝██║     ██║   ██║██╔════╝╚══██╔══╝██╔════╝██╔══██╗██║████╗  ██║██╔════╝ 
  █████╔╝       ██╔████╔██║█████╗  ███████║██╔██╗ ██║███████╗    ██║     ██║     ██║   ██║███████╗   ██║   █████╗  ██████╔╝██║██╔██╗ ██║██║  ███╗
  ██╔═██╗       ██║╚██╔╝██║██╔══╝  ██╔══██║██║╚██╗██║╚════██║    ██║     ██║     ██║   ██║╚════██║   ██║   ██╔══╝  ██╔══██╗██║██║╚██╗██║██║   ██║
  ██║  ██╗      ██║ ╚═╝ ██║███████╗██║  ██║██║ ╚████║███████║    ╚██████╗███████╗╚██████╔╝███████║   ██║   ███████╗██║  ██║██║██║ ╚████║╚██████╔╝
  ╚═╝  ╚═╝      ╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝     ╚═════╝╚══════╝ ╚═════╝ ╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ 
-                                                                                                               Clustering Analysis Tool dev by nhóm 1
----------------------------------------------------------------------------------------------------------------------------------------                                                         
+                                                                                                                                        Dev by Nhóm 1
+------------------------------------------------------------------------------------------------------------------------------------------------------                                                  
 
 (1) Tiền xử lý dữ liệu
 (2) Phân tích thăm dò (EDA)
@@ -56,8 +56,6 @@ def intro():
             print("""
 This tool is developed for customer segmentation using K-Means Clustering.
 Created by AI Assistant, aimed at providing insights from customer data.
-                  
-                  đây là đồ án của nhóm 1 
 """)
         elif choice == 00:
             exit()
@@ -85,13 +83,13 @@ def data_description():
     # print("\nData Types:")
     # print(data.dtypes)
     while True:
-        check_opjeck = input("\n Nhập Object mà bạn muốn kiểm tra (no): ")
+        check_opjeck = input("\n Nhập giá trị mà bạn muốn kiểm tra (No): ")
         if check_opjeck.lower() == 'no':
             break
         unique_count = len(df[check_opjeck].unique())
         print(f"Column '{check_opjeck}' has {unique_count} unique values.")
         print(df.describe())  # Display the descriptive statistics of the DataFrame
-        confirm = input(f"Bạn có muốn xóa thuộc tính '{check_opjeck}' không? (yes/no): ")
+        confirm = input(f"Xác nhận xóa thuộc tính '{check_opjeck}' không? (yes/no): ")
         if confirm.lower() == 'yes':
             df.drop(columns=[check_opjeck], inplace=True)
             df.to_csv('CC GENERAL.csv', index=False)
@@ -110,7 +108,7 @@ def data_description():
     #         print(f"Column '{column_to_drop}' does not exist. Vui lòng nhập lại.")
     
     while True:
-        choice = input("\nBạn có muốn xử lý giá trị khuyết bằng KNN Imputer? (yes/no): ")
+        choice = input("\nXử lý giá trị khuyết bằng KNN Imputer? (yes/no): ")
         if choice.lower() == "yes":
             imputer = KNNImputer(n_neighbors=5)
             df_imputed = pd.DataFrame(imputer.fit_transform(df), columns=df.columns)
@@ -139,7 +137,7 @@ def exploratory_data_analysis():
     plt.show()
     
     while True:
-        choice = input("\nBạn có muốn thực hiện phân tích số lượng mua so với tổng giao dịch? (yes/no): ")
+        choice = input("\nXác nhận Thực hiện phân tích số lượng mua so với tổng giao dịch? (yes/no): ")
         if choice.lower() == "yes":
             analyze_purchases_vs_transactions(data)
             break
@@ -169,7 +167,7 @@ def analyze_purchases_vs_transactions(data):
     plt.show()
 
     while True:
-        choice = input("\nBạn có muốn phân tích sự tương quan của các thuộc tính? (yes/no): ")
+        choice = input("\nTiến hành phân tích sự tương quan của các thuộc tính? (yes/no): ")
         if choice.lower() == "yes":
             analyze_correlation(data)
             break
@@ -222,7 +220,7 @@ def data_normalization():
     print(features_scaled_df.head())
 
     while True:
-        choice = input("\nBạn có muốn giảm chiều dữ liệu bằng PCA? (yes/no): ")
+        choice = input("\nXác nhận giảm chiều dữ liệu bằng PCA? (yes/no): ")
         if choice.lower() == "yes":
             pca = PCA(n_components=2)  # Giảm xuống 2 chiều để dễ hình dung
             features_pca = pca.fit_transform(features_scaled)
@@ -394,7 +392,7 @@ def main():
 
     # Hỏi người dùng có muốn vẽ biểu đồ phân cụm không
     while True:
-        choice = input("\nBạn có muốn vẽ biểu đồ phân cụm? (yes/no): ")
+        choice = input("\nXác nhận vẽ biểu đồ phân cụm? (yes/no): ")
         if choice.lower() == "yes":
             # Áp dụng K-means trên dữ liệu PCA
             kmeans_pca = KMeans(n_clusters=num_clusters, random_state=42)
