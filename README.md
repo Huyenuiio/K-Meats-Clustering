@@ -1,7 +1,7 @@
 # 🏦 K-Means Clustering – Credit Card Customer Segmentation
 
 > **Đồ án môn học** | Khai phá dữ liệu & Học máy  
-> **Nhóm:** Nhóm 1 | **Dev:** Tô Văn Huyên (MSSV: 226900)
+> **Nhóm:** Nhóm 1 | **Dev:** Tô Văn Huyền (MSSV: 226900)
 
 ---
 
@@ -170,7 +170,7 @@ Sau khi áp dụng Elbow Method, số cụm tối ưu là **k = 4**, tương ứ
 
 | Thành viên | MSSV |
 |---|---|
-| Tô Văn Huyên *(Lead Developer)* | 226900 |
+| Tô Văn Huyền *(Lead Developer)* | 226900 |
 | *(Các thành viên nhóm 1)* | |
 
 ---
